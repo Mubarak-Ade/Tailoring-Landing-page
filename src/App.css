@@ -1,0 +1,18 @@
+@import "tailwindcss";
+@import url("./font.css");
+
+body {
+    background: linear-gradient(135deg, var(--color-custom-1) 0%, var(--color-custom-2) 100%);
+}
+
+@theme {
+    --font-poppins: "poppins";
+    --font-lora: "lora";
+    --font-montserrat: "montserrat";
+    --color-custom-1: #07004D;
+    --color-custom-2: #2D82B7;
+    --color-custom-3: #42E2B8;
+    --color-custom-4: #F3DFBF;
+    --color-custom-5: #EB8A90;
+    --background-image-hero: url('./assets/images/hero.png')
+}

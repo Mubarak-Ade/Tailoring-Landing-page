@@ -1,0 +1,14 @@
+@font-face {
+    font-family: poppins;
+    src: url('./assets/font/Poppins-Regular.ttf');
+}
+
+@font-face {
+    font-family: lora;
+    src: url('./assets/font/Lora-VariableFont_wght.ttf');
+}
+
+@font-face {
+    font-family: montserrat;
+    src: url('./assets/font/Montserrat-VariableFont_wght.ttf');
+}
