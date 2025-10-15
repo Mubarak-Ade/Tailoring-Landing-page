@@ -11,18 +11,39 @@ const About = () => {
                     opacity: 0,
                     scale: 0,
                 }}
+                animate={{
+                    borderRadius: [
+                        "60% 40% 30% 70% / 60% 30% 70% 40%",
+                        "40% 60% 70% 30% / 50% 70% 30% 60%",
+                        "60% 40% 30% 70% / 60% 30% 70% 40%",
+                    ],
+                }}
                 whileInView={{
                     opacity: 1,
                     scale: 1,
                 }}
                 transition={{
-                    duration: 1,
-                    type: "spring",
-                    stiffness: 100
+                    scale: {
+                        duration: 1,
+                        type: "spring",
+                        stiffness: 100,
+                    },
+                    opacity: {
+                        duration: 1,
+                    },
+                    borderRadius: {
+                        duration: 8,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                    },
                 }}
-                className="flex-1 rounded-2xl"
+                className="flex-1 bg-custom-5 size-full rounded-full overflow-hidden flex items-center justify-center"
             >
-                <img src={Image} alt="" className="size-120" />
+                <img
+                    src={Image}
+                    alt=""
+                    className=" object-center"
+                />
             </motion.div>
             <motion.span
                 initial={{

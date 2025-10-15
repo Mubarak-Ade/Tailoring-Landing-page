@@ -6,6 +6,8 @@ import Image from "../assets/images/mockimage.png";
 import Image1 from "../assets/images/mockimage1.png";
 import Image2 from "../assets/images/mockimage2.png";
 import { AnimatePresence, motion } from "motion/react";
+import Lottie from "lottie-react";
+import sewingAnimate from "../Sewing.json";
 
 const Hero = () => {
     const [slideCurrent, setSlideCurrent] = useState(0);
@@ -32,7 +34,7 @@ const Hero = () => {
         <>
             <Navbar />
             <AnimatePresence mode="wait">
-                <motion.div layout className="flex relative pt-20">
+                <motion.div layout className="flex relative pt-20 relative">
                     <div className="bg-hero bg-cover bg-center absolute inset-0 h-full w-full"></div>
                     <div className="absolute bg-custom-1/80 inset-0 "></div>
                     <div className="flex-1 px-10 py-8 z-50">
@@ -135,6 +137,29 @@ const Hero = () => {
                                 alt=""
                             />
                         </AnimatePresence>
+                    </motion.div>
+                    <motion.div
+                        initial={{
+                            scale: 0,
+                            opacity: 0,
+                        }}
+                        whileInView={{
+                            scale: 1,
+                            opacity: 1,
+                        }}
+                        transition={{
+                            scale: {
+                                duration: 0.8,
+                                type: "spring",
+                                stiffness: 300,
+                            },
+                            opacity: {
+                                duration: 0.5,
+                            },
+                        }}
+                        className="size-40 -bottom-20 left-1/2 -translate-x-1/2 rounded-full bg-white absolute"
+                    >
+                        <Lottie animationData={sewingAnimate} />
                     </motion.div>
                 </motion.div>
             </AnimatePresence>

@@ -2,8 +2,7 @@ import { HiOutlineScissors, HiScissors } from "react-icons/hi";
 import { GiAmpleDress, GiSewingMachine, GiSewingNeedle } from "react-icons/gi";
 import React from "react";
 import { AnimatePresence, motion } from "motion/react";
-import Lottie from "lottie-react";
-import sewingAnimate from "../Sewing.json"
+
 
 const Services = () => {
     const cardVariant = {
@@ -26,8 +25,6 @@ const Services = () => {
     return (
         <div className="bg-white px-6 py-3">
             <h1 className="text-5xl text-white font-bold m-2">Services</h1>
-
-            <Lottie animationData={sewingAnimate} />
             <AnimatePresence>
                 <motion.div
                     initial={{

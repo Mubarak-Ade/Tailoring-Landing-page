@@ -12,7 +12,7 @@ const Gallery = () => {
 
     const cardVariants = (index) => ({
         initial: {
-            y: 50 * index,
+            y: 20 * index,
             opacity: 0,
         },
         view: {
@@ -54,6 +54,9 @@ const Gallery = () => {
             stiffness: 200,
             durantion: 1,
         },
+        tap: {
+            scale: .9
+        }
     };
 
     const iconVariant = {
@@ -99,7 +102,8 @@ const Gallery = () => {
                             </p>
                             <motion.button
                                 variants={buttonVariant}
-                                className="text-sm rounded-xl text-white font-bold bg-custom-5 px-6 m-2 py-4 flex gap-5 items-center"
+                                whileTap="tap"
+                                className="text-sm rounded-xl cursor-pointer text-white font-bold bg-custom-2 px-6 m-2 py-4 flex gap-5 items-center"
                             >
                                 View Detail{" "}
                                 <motion.span variants={iconVariant}>
