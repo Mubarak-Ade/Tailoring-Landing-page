@@ -68,7 +68,7 @@ const Testimonial = () => {
     const cardVariant = {
         hover: {
             background: "var(--color-custom-5)",
-            boxShadow: "var(--shadow-2xl) var(--color-custom-1)",
+            boxShadow: "var(--shadow-2xl) var(--color-custom-1)", 
             scale: 1.05
         },
     };
@@ -87,7 +87,7 @@ const Testimonial = () => {
             <motion.div
                 whileInView={{ scale: [0.8, 1] }}
                 transition={{ duration: 0.5, type: "spring", stiffness: 100 }}
-                className="flex rounded-3xl shadow-2xl flex-col w-4/5 m-10 items-center bg-custom-1 px-12 py-8"
+                className="flex rounded-3xl shadow-2xl flex-col w-4/5 m-10 items-center bg-custom-1/90 px-12 py-8"
             >
                 <AnimatePresence mode="wait">
                     <motion.div
@@ -157,7 +157,7 @@ const Testimonial = () => {
                             index === currentIndex
                                 ? "border-custom-5 border-4"
                                 : "border-custom-4"
-                        } rounded-3xl cursor-pointer bg-custom-1 px-6 py-3`}
+                        } rounded-3xl cursor-pointer bg-custom-1/50 px-6 py-3`}
                     >
                         <div className="flex text-yellow-400 m-2 text-2xl">
                             <AiFillStar />

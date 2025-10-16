@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "../assets/images/mock.png";
 import { motion } from "motion/react";
+import Services from "./Services";
 
 const About = () => {
     return (
@@ -101,6 +102,7 @@ const About = () => {
                     style and personality. Each piece is made with care, from
                     the first stitch to the final button.
                 </motion.p>
+                <Services />
             </motion.div>
         </div>
     );

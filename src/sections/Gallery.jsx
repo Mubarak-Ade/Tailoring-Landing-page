@@ -23,6 +23,8 @@ const Gallery = () => {
             background:
                 "linear-gradient(120deg, var(--color-custom-2), var(--color-custom-1)",
             color: "var(--color-white)",
+            scale: 1.05,
+            boxShadow: "0 10px 20px rgba(0,0,0,0.2)",
         },
         transition: {
             delay: 0.2,
@@ -54,9 +56,9 @@ const Gallery = () => {
             stiffness: 200,
             durantion: 1,
         },
-        tap: {
-            scale: .9
-        }
+        // tap: {
+        //     scale: .9
+        // }
     };
 
     const iconVariant = {
@@ -71,7 +73,7 @@ const Gallery = () => {
     };
 
     return (
-        <div className="px-6 bg-white/80 py-6">
+        <div className="px-6 py-6">
             <h1 className="text-5xl font-bold mt-5">Gallery</h1>
             <div className="grid grid-cols-3 place-items-center mt-10 gap-5">
                 <AnimatePresence mode="wait">
@@ -86,7 +88,7 @@ const Gallery = () => {
                             transition="transition"
                             className="overflow-hidden w-80 border-2 border-custom-1 rounded-2xl flex flex-col"
                         >
-                            <div className="bg-linear-120 from-custom-2 to-custom-1 w-full rounded-t-xl p-4 flex items-center justify-center">
+                            <div className="bg-cus w-full rounded-t-xl p-4 flex items-center justify-center">
                                 <motion.img
                                     variants={imageVariant}
                                     src={image}
@@ -94,15 +96,16 @@ const Gallery = () => {
                                     className="w-50 h-60"
                                 />
                             </div>
-                            <h1 className="text-2xl m-2 font-bold">
-                                Dress Making
-                            </h1>
-                            <p className="m-2">
-                                Tailored to fit your every detail and ocassion
-                            </p>
+                            <div className="text-custom-3">
+                                <h1 className="text-2xl m-2 font-bold">
+                                    Dress Making
+                                </h1>
+                                <p className="m-2">
+                                    Tailored to fit your every detail and ocassion
+                                </p>
+                            </div>
                             <motion.button
                                 variants={buttonVariant}
-                                whileTap="tap"
                                 className="text-sm rounded-xl cursor-pointer text-white font-bold bg-custom-2 px-6 m-2 py-4 flex gap-5 items-center"
                             >
                                 View Detail{" "}

@@ -34,133 +34,139 @@ const Hero = () => {
         <>
             <Navbar />
             <AnimatePresence mode="wait">
-                <motion.div layout className="flex relative pt-20 relative">
-                    <div className="bg-hero bg-cover bg-center absolute inset-0 h-full w-full"></div>
-                    <div className="absolute bg-custom-1/80 inset-0 "></div>
-                    <div className="flex-1 px-10 py-8 z-50">
-                        <motion.h1
-                            initial={{
-                                opacity: 0,
-                                y: 20,
-                            }}
-                            whileInView={{
-                                opacity: 1,
-                                y: 0,
-                            }}
-                            transition={{
-                                delay: 0.2,
-                            }}
-                            className="text-6xl mt-10 font-bold text-start text-white"
-                        >
-                            <span className="text-custom-3">
-                                Tailored to Perfection
-                            </span>{" "}
-                            - Crafted just for you
-                        </motion.h1>
-                        <motion.p
-                            initial={{
-                                opacity: 0,
-                                y: 20,
-                            }}
-                            whileInView={{
-                                opacity: 1,
-                                y: 0,
-                            }}
-                            transition={{
-                                delay: 0.3,
-                            }}
-                            className="text-xl mt-10 text-gray-100 text-start"
-                        >
-                            Bespoke suits, dresses, and alterations that bring
-                            out your best fit
-                        </motion.p>
-                        <motion.button
-                            initial={{
-                                opacity: 0,
-                                y: 20,
-                            }}
-                            animate={{
-                                opacity: 1,
-                                y: 0,
-                            }}
-                            whileHover={{
-                                backgroundColor: "var(--color-custom-3)",
-                                color: "var(--color-white)",
-                                boxShadow: "0 10px 30px rgba(255,255,255,0.2)",
-                                scale: 1.05,
-                            }}
-                            whileTap={{
-                                scale: 0.95,
-                            }}
-                            transition={{
-                                // delay: 0.4,
-                                duration: 0.5,
-                                stiffness: 200,
-                                type: "spring",
-                            }}
-                            className="mt-5 cursor-pointer rounded-xl px-4 text-custom-3 border border-custom-3 font-semibold py-2"
-                        >
-                            Book a Fitting
-                        </motion.button>
-                    </div>
-                    <motion.div
-                        initial={{
-                            opacity: 0,
-                        }}
-                        whileInView={{
-                            opacity: 1,
-                        }}
-                        className="size-150 overflow-hidden flex relative"
-                    >
-                        <AnimatePresence>
-                            <motion.img
-                                layout
-                                key={slideImage[slideCurrent]}
+                <motion.div
+                    layout
+                    className="relative bg-linear-to-l from-custom-1 via-custom-2 to-custom-1 pt-20"
+                >
+                    {/* <div className="absolute bg-linear-90 z-1 inset-0 "></div> */}
+                    <div className="bg-hero opacity-10 z-2 bg-cover bg-center absolute bg-fixed inset-0 h-full w-full"></div>
+                    <div className="flex">
+                        <div className="flex-1 px-10 py-8 z-50">
+                            <motion.h1
                                 initial={{
                                     opacity: 0,
-                                    x: 100,
+                                    y: 20,
+                                }}
+                                whileInView={{
+                                    opacity: 1,
+                                    y: 0,
+                                }}
+                                transition={{
+                                    delay: 0.2,
+                                }}
+                                className="text-6xl mt-10 font-bold text-start text-white"
+                            >
+                                <span className="text-custom-3">
+                                    Tailored to Perfection
+                                </span>{" "}
+                                - Crafted just for you
+                            </motion.h1>
+                            <motion.p
+                                initial={{
+                                    opacity: 0,
+                                    y: 20,
+                                }}
+                                whileInView={{
+                                    opacity: 1,
+                                    y: 0,
+                                }}
+                                transition={{
+                                    delay: 0.3,
+                                }}
+                                className="text-xl mt-10 text-gray-100 text-start"
+                            >
+                                Bespoke suits, dresses, and alterations that
+                                bring out your best fit
+                            </motion.p>
+                            <motion.button
+                                initial={{
+                                    opacity: 0,
+                                    y: 20,
                                 }}
                                 animate={{
                                     opacity: 1,
-                                    x: 0,
+                                    y: 0,
                                 }}
-                                exit={{
-                                    opacity: 0,
-                                    x: -100,
+                                whileHover={{
+                                    backgroundColor: "var(--color-custom-3)",
+                                    color: "var(--color-custom-1)",
+                                    boxShadow:
+                                        "0 10px 30px rgba(255,255,255,0.2)",
+                                    scale: 1.05,
+                                }}
+                                whileTap={{
+                                    scale: 0.95,
                                 }}
                                 transition={{
-                                    duration: 0.8,
-                                    ease: "easeInOut",
+                                    // delay: 0.4,
+                                    duration: 0.5,
+                                    stiffness: 200,
+                                    type: "spring",
                                 }}
-                                src={slideImage[slideCurrent]}
-                                className="size-120"
-                                alt=""
-                            />
-                        </AnimatePresence>
-                    </motion.div>
-                    <motion.div
-                        initial={{
-                            scale: 0,
-                            opacity: 0,
-                        }}
-                        whileInView={{
-                            scale: 1,
-                            opacity: 1,
-                        }}
-                        transition={{
-                            scale: {
-                                duration: 0.8,
-                                type: "spring",
-                                stiffness: 300,
-                            },
-                            opacity: {
-                                duration: 0.5,
-                            },
-                        }}
-                        className="size-40 -bottom-20 left-1/2 -translate-x-1/2 rounded-full bg-white absolute"
-                    >
-                        <Lottie animationData={sewingAnimate} />
-                    </motion.div>
+                                className="mt-5 cursor-pointer rounded-xl px-4 text-custom-3 border border-custom-3 font-semibold py-2"
+                            >
+                                Book a Fitting
+                            </motion.button>
+                            {/* <motion.div
+                                initial={{
+                                    scale: 0,
+                                    opacity: 0,
+                                }}
+                                whileInView={{
+                                    scale: 1,
+                                    opacity: 1,
+                                }}
+                                transition={{
+                                    scale: {
+                                        duration: 0.8,
+                                        type: "spring",
+                                        stiffness: 300,
+                                    },
+                                    opacity: {
+                                        duration: 0.5,
+                                    },
+                                }}
+                                className="size-40 mt-6 rounded-full bg-white"
+                            >
+                                <Lottie animationData={sewingAnimate} />
+                            </motion.div> */}
+                        </div>
+                        <motion.div
+                            initial={{
+                                opacity: 0,
+                            }}
+                            whileInView={{
+                                opacity: 1,
+                            }}
+                            className="size-150 overflow-hidden flex relative"
+                        >
+                            <AnimatePresence>
+                                <motion.img
+                                    layout
+                                    key={slideImage[slideCurrent]}
+                                    initial={{
+                                        opacity: 0,
+                                        x: 100,
+                                    }}
+                                    animate={{
+                                        opacity: 1,
+                                        x: 0,
+                                    }}
+                                    exit={{
+                                        opacity: 0,
+                                        x: -100,
+                                    }}
+                                    transition={{
+                                        duration: 0.8,
+                                        ease: "easeInOut",
+                                    }}
+                                    src={slideImage[slideCurrent]}
+                                    className="size-120 z-50"
+                                    alt=""
+                                />
+                            </AnimatePresence>
+                        </motion.div>
+                    </div>
                 </motion.div>
             </AnimatePresence>
         </>

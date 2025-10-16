@@ -15,12 +15,12 @@ const Navbar = () => {
         };
         window.addEventListener("scroll", handleScroll);
 
-        return () => window.removeEventListener("scroll", handleScroll)
+        return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
     const buttonVariant = {
         hover: {
-            background: "var(--color-custom-2)",
+            background: "var(--color-custom-1)",
             color: "var(--color-white)",
             scale: 1.05,
         },
@@ -37,7 +37,7 @@ const Navbar = () => {
     return (
         <div
             className={`flex items-center ${
-                stickyNav ? "bg-custom-1 shadow-2xl" : "bg-transparent"
+                stickyNav ? "bg-linear-to-r from-custom-1 via-custom-2 to-custom-1 shadow-2xl" : "bg-transparent"
             } z-[100] fixed h-20 w-full px-10 py-2 overflow-hidden`}
         >
             <div className="flex flex-1 items-center gap-4 text-white">
@@ -70,15 +70,6 @@ const Navbar = () => {
                     transition="transition"
                     className="cursor-pointer rounded-xl  px-4 py-2"
                 >
-                    Services
-                </motion.li>
-                <motion.li
-                    variants={buttonVariant}
-                    whileHover="hover"
-                    whileTap="tap"
-                    transition="transition"
-                    className="cursor-pointer rounded-xl  px-4 py-2"
-                >
                     Gallery
                 </motion.li>
                 <motion.li
@@ -88,7 +79,16 @@ const Navbar = () => {
                     transition="transition"
                     className="cursor-pointer rounded-xl  px-4 py-2"
                 >
-                    contact
+                    Testimonial
+                </motion.li>
+                <motion.li
+                    variants={buttonVariant}
+                    whileHover="hover"
+                    whileTap="tap"
+                    transition="transition"
+                    className="cursor-pointer rounded-xl  px-4 py-2"
+                >
+                    Contact
                 </motion.li>
             </ul>
             <motion.button
