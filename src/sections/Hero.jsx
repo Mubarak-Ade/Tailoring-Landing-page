@@ -1,13 +1,10 @@
-import { BsArrowRightCircleFill } from "react-icons/bs";
-import { BsArrowLeftCircleFill } from "react-icons/bs";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Navbar from "../component/Navbar";
 import Image from "../assets/images/mockimage.png";
 import Image1 from "../assets/images/mockimage1.png";
 import Image2 from "../assets/images/mockimage2.png";
 import { AnimatePresence, motion } from "motion/react";
-import Lottie from "lottie-react";
-import sewingAnimate from "../Sewing.json";
+import { HeroAnimation, SlideAnimation } from "../animation/hero";
 
 const Hero = () => {
     const [slideCurrent, setSlideCurrent] = useState(0);
@@ -33,70 +30,47 @@ const Hero = () => {
     return (
         <>
             <Navbar />
-            <AnimatePresence mode="wait">
-                <motion.div
-                    layout
-                    className="relative bg-linear-to-l from-custom-1 via-custom-2 to-custom-1 pt-20"
-                >
-                    {/* <div className="absolute bg-linear-90 z-1 inset-0 "></div> */}
-                    <div className="bg-hero opacity-10 z-2 bg-cover bg-center absolute bg-fixed inset-0 h-full w-full"></div>
-                    <div className="flex">
-                        <div className="flex-1 px-10 py-8 z-50">
-                            <motion.h1
-                                initial={{
-                                    opacity: 0,
-                                    y: 20,
-                                }}
-                                whileInView={{
-                                    opacity: 1,
-                                    y: 0,
-                                }}
-                                transition={{
-                                    delay: 0.2,
-                                }}
-                                className="text-6xl mt-10 font-bold text-start text-white"
+            <motion.div
+                layout
+                name="hero"
+                className="relative min-h-screen overflow-hidden bg-linear-to-l from-custom-1 via-custom-2 to-custom-1"
+            >
+                <div className="bg-hero opacity-10 z-2 bg-cover bg-center absolute bg-fixed inset-0 h-full w-full"></div>
+                <div className="container mx-auto px-6 relative z-20">
+                    <div className="flex items-center gap-12">
+                        <div className="flex-1 text-center">
+                            <motion.div
+                                initial="initial"
+                                variants={HeroAnimation}
+                                whileInView="view"
                             >
-                                <span className="text-custom-3">
-                                    Tailored to Perfection
-                                </span>{" "}
-                                - Crafted just for you
-                            </motion.h1>
+                                <h1 className="text-6xl mb-6 font-bold text-left text-white">
+                                    <span className="text-custom-3 mb-2 block">
+                                        Tailored to Perfection -
+                                    </span>
+                                    <span className="text-5xl">
+                                        Crafted just for you
+                                    </span>
+                                </h1>
+                            </motion.div>
                             <motion.p
-                                initial={{
-                                    opacity: 0,
-                                    y: 20,
-                                }}
-                                whileInView={{
-                                    opacity: 1,
-                                    y: 0,
-                                }}
+                                initial="initial"
+                                variants={HeroAnimation}
+                                whileInView="view"
                                 transition={{
                                     delay: 0.3,
                                 }}
-                                className="text-xl mt-10 text-gray-100 text-start"
+                                className="text-xl mb-10 mx-0 text-gray-100 text-start"
                             >
                                 Bespoke suits, dresses, and alterations that
                                 bring out your best fit
                             </motion.p>
                             <motion.button
-                                initial={{
-                                    opacity: 0,
-                                    y: 20,
-                                }}
-                                animate={{
-                                    opacity: 1,
-                                    y: 0,
-                                }}
-                                whileHover={{
-                                    backgroundColor: "var(--color-custom-3)",
-                                    color: "var(--color-custom-1)",
-                                    boxShadow:
-                                        "0 10px 30px rgba(255,255,255,0.2)",
-                                    scale: 1.05,
-                                }}
-                                whileTap={{
-                                    scale: 0.95,
-                                }}
+                                initial="initial"
+                                variants={HeroAnimation}
+                                whileInView="view"
+                                whileHover="cta_hover"
+                                whileTap="cta_tap"
                                 transition={{
                                     // delay: 0.4,
                                     duration: 0.5,
@@ -135,40 +109,33 @@ const Hero = () => {
                             initial={{
                                 opacity: 0,
                             }}
-                            whileInView={{
-                                opacity: 1,
-                            }}
-                            className="size-150 overflow-hidden flex relative"
+                            variants={SlideAnimation}
+                            whileInView="view"
+                            className="flex-1 relative w-full max-w-2xl px-10"
                         >
-                            <AnimatePresence>
-                                <motion.img
-                                    layout
-                                    key={slideImage[slideCurrent]}
-                                    initial={{
-                                        opacity: 0,
-                                        x: 100,
-                                    }}
-                                    animate={{
-                                        opacity: 1,
-                                        x: 0,
-                                    }}
-                                    exit={{
-                                        opacity: 0,
-                                        x: -100,
-                                    }}
-                                    transition={{
-                                        duration: 0.8,
-                                        ease: "easeInOut",
-                                    }}
-                                    src={slideImage[slideCurrent]}
-                                    className="size-120 z-50"
-                                    alt=""
-                                />
-                            </AnimatePresence>
+                            <div className="aspect-[4/5] h-180 w-160 m-4 relative overflow-hidden rounded-2xl shadow-2xl">
+                                <AnimatePresence mode="wait">
+                                    <motion.img
+                                        layout
+                                        key={slideImage[slideCurrent]}
+                                        initial="initial"
+                                        animate="animate"
+                                        exit="exite"
+                                        variants={SlideAnimation}
+                                        transition={{
+                                            duration: 0.8,
+                                            ease: "easeInOut",
+                                        }}
+                                        src={slideImage[slideCurrent]}
+                                        className="absolute inset-0 w-full h-full object-contain"
+                                        alt=""
+                                    />
+                                </AnimatePresence>
+                            </div>
                         </motion.div>
                     </div>
-                </motion.div>
-            </AnimatePresence>
+                </div>
+            </motion.div>
         </>
     );
 };

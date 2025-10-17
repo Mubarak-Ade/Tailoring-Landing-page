@@ -14,5 +14,6 @@ body {
     --color-custom-3: #42E2B8;
     --color-custom-4: #F3DFBF;
     --color-custom-5: #EB8A90;
-    --background-image-hero: url('./assets/images/hero.png')
+    --background-image-hero: url('./assets/images/hero.png');
+    --background-image-about: url('./assets/images/about.png');
 }

@@ -2,56 +2,10 @@ import { BsFillArrowRightCircleFill } from "react-icons/bs";
 import { BsFillArrowLeftCircleFill } from "react-icons/bs";
 import { AiFillStar } from "react-icons/ai";
 import React, { useState } from "react";
-import testinialImage from "../assets/images/testimonial/edo.png";
-import testinialImage2 from "../assets/images/testimonial/hausa.png";
-import testinialImage3 from "../assets/images/testimonial/igbo.png";
-import testinialImage4 from "../assets/images/testimonial/yoruba.png";
-import testinialImage5 from "../assets/images/testimonial/yoruba1.png";
 import { AnimatePresence, motion } from "motion/react";
+import { testimonials } from "../data";
 
 const Testimonial = () => {
-    const testimonials = [
-        {
-            id: 1,
-            name: "Aisha Bello",
-            location: "lagos, Nigeria",
-            feedback:
-                "Brought my Ankara fabric and had no idea what to make. Mubarak turned it into a stunning gown that fits like it was made by angels. The finishing is perfect — everyone at my event asked who my tailor was!",
-            image: testinialImage2,
-        },
-        {
-            id: 2,
-            name: "Fatima Yusuf",
-            location: "Kano, Nigeria",
-            feedback:
-                "I sent my measurements online and got my dress delivered in a week! Perfect fit. I love how the tailor listens and suggests styles that flatter your body shape. 10/10 service.",
-            image: testinialImage5,
-        },
-        {
-            id: 3,
-            name: "Folake Adebayo",
-            location: "Ibadan, Nigeria",
-            feedback:
-                "I wanted something simple yet traditional for my engagement. The Adire gown Mubarak made was a masterpiece — bold blue patterns, elegant flow, and so comfortable. My family couldn’t stop praising it!",
-            image: testinialImage4,
-        },
-        {
-            id: 4,
-            name: "Chinwe Okafor",
-            location: "Enugu, Nigeria",
-            feedback:
-                "I wore the George wrapper Mubarak tailored for my brother’s wedding — the beadwork, the fitting, everything screamed class! I’ve found my lifetime tailor",
-            image: testinialImage3,
-        },
-        {
-            id: 5,
-            name: "Zainab Kolawole",
-            location: "Abuja, Nigeria",
-            feedback:
-                "Professional, punctual, and creative! My corporate suits always come out neat and classy. The attention to detail is unmatched — I’ve never looked this confident in my outfits.",
-            image: testinialImage,
-        },
-    ];
 
     const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -65,11 +19,36 @@ const Testimonial = () => {
         );
     };
 
+    const containerVariant = {
+        initial: { opacity: 0, y: 50 },
+        view: { opacity: 1, y: 0 },
+        transition: {
+            duration: 0.8,
+            ease: "easeOut",
+            staggerChildren: .5,
+            when: "beforeChildren",
+        },
+    };
+
     const cardVariant = {
+        initial: {
+            // scale: 0,
+            y: 50,
+        },
+        view: (i) => ({
+            scale: [0.8, 1],
+            y: 0,
+            transition: {
+                delay: i * 0.025,
+                duration: .5,
+                type: "spring",
+                stiffness: 100
+            }
+        }),
         hover: {
             background: "var(--color-custom-5)",
-            boxShadow: "var(--shadow-2xl) var(--color-custom-1)", 
-            scale: 1.05
+            boxShadow: "var(--shadow-2xl) var(--color-custom-1)",
+            scale: 1.05,
         },
     };
 
@@ -80,7 +59,13 @@ const Testimonial = () => {
     };
 
     return (
-        <div className="bg-gradient-to-br flex items-center flex-col from-custom-2 p-4">
+        <motion.section
+            variants={containerVariant}
+            initial="initial"
+            whileInView="view"
+            name="testimonial"
+            className="bg-gradient-to-br flex items-center flex-col from-custom-2 p-4"
+        >
             <h1 className="text-4xl font-bold m-2 text-white text-center">
                 Client testimonial
             </h1>
@@ -150,8 +135,11 @@ const Testimonial = () => {
             <div className="grid grid-cols-3 gap-4">
                 {testimonials.map((testimonial, index) => (
                     <motion.div
+                        initial="initial"
                         whileHover="hover"
+                        whileInView="view"
                         variants={cardVariant}
+                        custom={index}
                         key={testimonial.id}
                         className={`border-2 shadow-2xl ${
                             index === currentIndex
@@ -181,7 +169,7 @@ const Testimonial = () => {
                     </motion.div>
                 ))}
             </div>
-        </div>
+        </motion.section>
     );
 };
 

@@ -1,24 +1,49 @@
 import { BsArrowRight } from "react-icons/bs";
-import React from "react";
-import Image from "../assets/images/mo.png";
-import Image1 from "../assets/images/mockimage.png";
-import Image2 from "../assets/images/mockimage1.png";
-import Image3 from "../assets/images/mockimage2.png";
-import Image4 from "../assets/images/mockimage3.png";
-import { AnimatePresence, motion } from "motion/react";
+import React, { useState } from "react";
+import Image from "../assets/images/Gemini_Generated_Image_2bykny2bykny2byk.png";
+import Image1 from "../assets/images/Gemini_Generated_Image_6s6hic6s6hic6s6h.png";
+import Image2 from "../assets/images/Gemini_Generated_Image_948cco948cco948c.png";
+import Image3 from "../assets/images/Gemini_Generated_Image_9iqv4y9iqv4y9iqv.png";
+import Image4 from "../assets/images/Gemini_Generated_Image_o2nhnho2nhnho2nh.png";
+import Image5 from "../assets/images/Gemini_Generated_Image_qvzzm7qvzzm7qvzz.png";
+import { AnimatePresence, easeInOut, motion } from "motion/react";
+import { containerVariant } from "../animation/general";
+import { galleryData } from "../data";
+import CardPreview from "../component/CardPreview";
 
 const Gallery = () => {
-    const images = [Image, Image1, Image2, Image3, Image4];
-
-    const cardVariants = (index) => ({
+    const variant = {
         initial: {
-            y: 20 * index,
             opacity: 0,
         },
         view: {
+            opacity: 1,
+            transition: {
+                type: "spring",
+                stiffness: 100,
+                durantion: 2,
+                ease: "easeInOut",
+                staggerChildren: 0.5,
+                when: "beforeChildren",
+            },
+        },
+    };
+
+    const cardVariants = {
+        initial: {
+            y: 20,
+            opacity: 0,
+        },
+        view: (index) => ({
             y: 0,
             opacity: 1,
-        },
+            transition: {
+                delay: index * 0.15,
+                type: "spring",
+                stiffness: 100,
+                duration: 2,
+            },
+        }),
         hover: {
             background:
                 "linear-gradient(120deg, var(--color-custom-2), var(--color-custom-1)",
@@ -26,13 +51,7 @@ const Gallery = () => {
             scale: 1.05,
             boxShadow: "0 10px 20px rgba(0,0,0,0.2)",
         },
-        transition: {
-            delay: 0.2,
-            type: "spring",
-            stiffness: 100,
-            durantion: 2,
-        },
-    });
+    };
 
     const imageVariant = {
         initial: {},
@@ -47,77 +66,101 @@ const Gallery = () => {
     };
 
     const buttonVariant = {
-        initial: {},
         hover: {
             background: "var(--color-custom-1)",
+            color: "var(--color-white)",
+            transition: {
+                durantion: 1,
+            },
         },
-        transition: {
-            type: "spring",
-            stiffness: 200,
-            durantion: 1,
+        tap: {
+            scale: 0.95,
         },
-        // tap: {
-        //     scale: .9
-        // }
     };
 
     const iconVariant = {
         hover: {
-            x: 120,
-        },
-        transition: {
-            type: "spring",
-            stiffness: 250,
-            durantion: 1,
+            x: 15,
+            transition: {
+                type: "spring",
+                stiffness: 250,
+                durantion: 1,
+            },
         },
     };
 
+    const [currentIndex, setCurrentIndex] = useState(null);
+    
+
     return (
-        <div className="px-6 py-6">
-            <h1 className="text-5xl font-bold mt-5">Gallery</h1>
-            <div className="grid grid-cols-3 place-items-center mt-10 gap-5">
-                <AnimatePresence mode="wait">
-                    {images.map((image, index) => (
-                        <motion.div
-                            key={index}
-                            layoutId={index}
-                            variants={cardVariants(index)}
-                            initial="initial"
-                            whileInView="view"
-                            whileHover="hover"
-                            transition="transition"
-                            className="overflow-hidden w-80 border-2 border-custom-1 rounded-2xl flex flex-col"
-                        >
-                            <div className="bg-cus w-full rounded-t-xl p-4 flex items-center justify-center">
-                                <motion.img
-                                    variants={imageVariant}
-                                    src={image}
-                                    alt={image}
-                                    className="w-50 h-60"
-                                />
-                            </div>
-                            <div className="text-custom-3">
-                                <h1 className="text-2xl m-2 font-bold">
-                                    Dress Making
-                                </h1>
-                                <p className="m-2">
-                                    Tailored to fit your every detail and ocassion
-                                </p>
-                            </div>
+        <motion.section
+            initial="initial"
+            whileInView="view"
+            variants={containerVariant}
+            name="gallery"
+            className="px-6 py-6"
+        >
+            <div className="text-center">
+                <h1 className="text-4xl font-bold mt-5 text-white">
+                    Our Gallery
+                </h1>
+                <p className="text-white text-xl mt-5">
+                    Explore our exquisite collection of custom-tailored
+                    masterpieces
+                </p>
+            </div>
+            <motion.div
+                variants={variant}
+                initial="initial"
+                whileInView="view"
+                viewport={{
+                    once: true,
+                    amount: 0.2,
+                    margin: "0px 0px -100px 0px",
+                }}
+                className="grid grid-cols-3 place-items-center mt-10 gap-5"
+            >
+                {galleryData.map((gallery) => (
+                    <motion.div
+                        key={gallery.id}
+                        initial="initial"
+                        variants={cardVariants}
+                        whileInView="view"
+                        whileHover="hover"
+                        custom={gallery.id}
+                        className="overflow-hidden w-90 border-2 border-custom-1 rounded-2xl flex flex-col"
+                    >
+                        <div
+                            style={{ backgroundImage: `url(${gallery.image})` }}
+                            className="overflow-hidden h-70 flex items-center justify-center w-full rounded-t-xl p-4 bg-contain bg-center"
+                        ></div>
+                        <div className="p-6 text-white">
+                            <h1 className="text-2xl m-2 font-bold">
+                                {gallery.title}
+                            </h1>
+                            <p className="m-2">{gallery.description}</p>
+                        </div>
+                        <div onClick={() => setCurrentIndex(gallery.id)} className="flex items-center px-4 py-2 justify-between border-t- bg-custom-1/40 border-custom-1">
                             <motion.button
                                 variants={buttonVariant}
-                                className="text-sm rounded-xl cursor-pointer text-white font-bold bg-custom-2 px-6 m-2 py-4 flex gap-5 items-center"
+                                whileHover="hover"
+                                whileTap="tap"
+                                className="text-sm rounded-xl cursor-pointer text-custom-1 font-bold bg-custom-2 px-6 m-2 py-4 flex gap-2 items-center"
                             >
-                                View Detail{" "}
+                                View Detail
                                 <motion.span variants={iconVariant}>
                                     <BsArrowRight size={20} />
                                 </motion.span>
                             </motion.button>
-                        </motion.div>
-                    ))}
-                </AnimatePresence>
-            </div>
-        </div>
+                            {/* <h6 className="text-xl text-white font-bold">
+                                ₦100,000
+                            </h6> */}
+                        </div>
+                    </motion.div>
+                ))}
+            </motion.div>
+            <CardPreview currentIndex={currentIndex} setCurrentIndex={setCurrentIndex} />
+        </motion.section>
     );
 };
 

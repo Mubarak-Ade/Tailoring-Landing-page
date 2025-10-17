@@ -1,10 +1,28 @@
+import { motion } from "motion/react";
 import React from "react";
 
 const CTASection = () => {
     return (
-        <div className="bg-linear-to-r from-custom-1 to-[#2D82B7] overflow-hidden relative text-center">
+        <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true }}
+            className="bg-linear-to-r from-custom-1 to-[#2D82B7] overflow-hidden relative text-center"
+        >
             <div className="h-full w-full absolute bg-[url(./assets/images/cta_image.png)] bg-cover bg-center bg-fixed opacity-20 z-1"></div>
-            <div className="z-50 h-100 relative flex items-center justify-center flex-col gap-8">
+            <motion.div
+                whileInView={{
+                    scale: [0.8, 1],
+                    y: [-20, 0],
+                }}
+                transition={{
+                    duration: 1,
+                    type: "spring",
+                    stiffness: 100,
+                }}
+                className="z-50 h-100 relative flex items-center justify-center flex-col gap-8"
+            >
                 <h1 className="text-custom-3 text-5xl font-bold">
                     Your next perfect fit is one booking away.
                 </h1>
@@ -12,11 +30,26 @@ const CTASection = () => {
                     Collaborate with us to design exquisite, custom attire that
                     embodies your unique elegance.
                 </p>
-                <button className="bg-custom-5 text-custom-1 font-bold px-6 w-100 text-lg rounded-full py-4">
+                <motion.button
+                    whileHover={{
+                        background:
+                            "linear-gradient(60deg, var(--color-custom-1), var(--color-custom-2))",
+                        color: "var(--color-white)",
+                        boxShadow: "0 10px 30px rgba(255,255,255,0.2)",
+                    }}
+                    whileTap={{
+                        scale: 0.9,
+                    }}
+                    transition={{
+                        type: "spring",
+                        stiffness: 100,
+                    }}
+                    className="bg-linear-60 from-custom-2 to-custom-1 cursor-pointer text-custom-4 font-bold px-6 w-100 text-lg rounded-2xl py-4"
+                >
                     Book a fitting
-                </button>
-            </div>
-        </div>
+                </motion.button>
+            </motion.div>
+        </motion.div>
     );
 };
 

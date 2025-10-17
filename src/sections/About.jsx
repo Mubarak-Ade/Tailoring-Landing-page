@@ -2,49 +2,25 @@ import React from "react";
 import Image from "../assets/images/mock.png";
 import { motion } from "motion/react";
 import Services from "./Services";
+import { containerVariant } from "../animation/general";
 
 const About = () => {
     return (
-        <div className="bg-custom-4 flex items-center justify-center gap-10 overflow-hidden px-6 py-2">
+        <motion.section
+            initial="initial"
+            whileInView="view"
+            variants={containerVariant}
+            name="about"
+            className="bg-custom-4 flex items-center justify-center gap-10 overflow-hidden px-6 py-2"
+        >
             <motion.div
                 layout
-                initial={{
-                    opacity: 0,
-                    scale: 0,
-                }}
-                animate={{
-                    borderRadius: [
-                        "60% 40% 30% 70% / 60% 30% 70% 40%",
-                        "40% 60% 70% 30% / 50% 70% 30% 60%",
-                        "60% 40% 30% 70% / 60% 30% 70% 40%",
-                    ],
-                }}
-                whileInView={{
-                    opacity: 1,
-                    scale: 1,
-                }}
-                transition={{
-                    scale: {
-                        duration: 1,
-                        type: "spring",
-                        stiffness: 100,
-                    },
-                    opacity: {
-                        duration: 1,
-                    },
-                    borderRadius: {
-                        duration: 8,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                    },
-                }}
+                initial="initial"
+                animate="animate"
+                whileInView="view"
                 className="flex-1 bg-custom-5 size-full rounded-full overflow-hidden flex items-center justify-center"
             >
-                <img
-                    src={Image}
-                    alt=""
-                    className=" object-center"
-                />
+                <img src={Image} alt="" className=" object-center" />
             </motion.div>
             <motion.span
                 initial={{
@@ -104,7 +80,7 @@ const About = () => {
                 </motion.p>
                 <Services />
             </motion.div>
-        </div>
+        </motion.section>
     );
 };
 
