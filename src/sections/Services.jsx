@@ -3,7 +3,6 @@ import { GiAmpleDress, GiSewingMachine, GiSewingNeedle } from "react-icons/gi";
 import React from "react";
 import { AnimatePresence, motion } from "motion/react";
 
-
 const Services = () => {
     const cardVariant = {
         hover: {
@@ -39,7 +38,7 @@ const Services = () => {
                         type: "spring",
                         stiffness: 200,
                     }}
-                    className="grid grid-cols-4 text-xs [&_span]:border-2 [&_span]:border-custom-1 [&_span]:cursor-pointer [&_span]:text-custom-1 [&_span]:flex [&_span]:flex-col [&_span]:items-center [&_span]:size-25 [&_span]:justify-center [&_span]:rounded-xl [&_span]:gap-2 m-10 align-middle gap-10 justify-center"
+                    className="flex font-playfair text-xs align-middle gap-5 justify-center"
                 >
                     <motion.span
                         variants={cardVariant}
@@ -47,9 +46,9 @@ const Services = () => {
                         whileHover="hover"
                         transition="transition"
                         exit="exit"
-                        className=""
+                        className="border-2 size-18 text-center lg:size-25 mt-5 border-custom-1 cursor-pointer text-custom-1 flex flex-col items-center justify-center rounded-xl gap-2 lg:mt-10"
                     >
-                        <GiAmpleDress className="text-5xl" />
+                        <GiAmpleDress className="lg:text-5xl text-2xl" />
                         <p className="font-semibold">Dress</p>
                     </motion.span>
                     <motion.span
@@ -58,9 +57,9 @@ const Services = () => {
                         whileHover="hover"
                         transition="transition"
                         exit="exit"
-                        className=""
+                        className="border-2 size-18 text-center lg:size-25 mt-5 border-custom-1 cursor-pointer text-custom-1 flex flex-col items-center justify-center rounded-xl gap-2 lg:mt-10"
                     >
-                        <GiSewingMachine className="text-5xl" />
+                        <GiSewingMachine className="lg:text-5xl text-2xl" />
                         <p className="font-semibold">Sewing</p>
                     </motion.span>
                     <motion.span
@@ -69,9 +68,9 @@ const Services = () => {
                         whileHover="hover"
                         transition="transition"
                         exit="exit"
-                        className=""
+                        className=" border-2 size-18 text-center lg:size-25 mt-5 border-custom-1 cursor-pointer text-custom-1 flex flex-col items-center justify-center rounded-xl gap-2 lg:mt-10"
                     >
-                        <GiSewingNeedle className="text-5xl" />
+                        <GiSewingNeedle className="lg:text-5xl text-2xl" />
                         <p className="font-semibold">Needle Work</p>
                     </motion.span>
                     <motion.span
@@ -80,9 +79,9 @@ const Services = () => {
                         whileHover="hover"
                         transition="transition"
                         exit="exit"
-                        className=""
+                        className=" border-2 size-18 text-center lg:size-25 mt-5 border-custom-1 cursor-pointer text-custom-1 flex flex-col items-center justify-center rounded-xl gap-2 lg:mt-10"
                     >
-                        <HiScissors className="text-5xl" />
+                        <HiScissors className="lg:text-5xl text-2xl" />
                         <p className="font-semibold">Cut</p>
                     </motion.span>
                 </motion.div>

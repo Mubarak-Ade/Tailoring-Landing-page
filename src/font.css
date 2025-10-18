@@ -1,14 +1,19 @@
 @font-face {
-    font-family: poppins;
-    src: url('./assets/font/Poppins-Regular.ttf');
+    font-family: "poppins";
+    src: url('./assets/font/Poppins/Poppins-Regular.ttf');
 }
 
 @font-face {
-    font-family: lora;
-    src: url('./assets/font/Lora-VariableFont_wght.ttf');
+    font-family: "playfair";
+    src: url('./assets/font/Playfair_Display/PlayfairDisplay-VariableFont_wght.ttf');
 }
 
 @font-face {
-    font-family: montserrat;
-    src: url('./assets/font/Montserrat-VariableFont_wght.ttf');
+    font-family: "montserrat";
+    src: url('./assets/font/Montserrat/Montserrat-VariableFont_wght.ttf');
+}
+
+@font-face {
+    font-family: "roboto-mono";
+    src: url('./assets/font/Roboto_Mono/RobotoMono-VariableFont_wght.ttf');
 }

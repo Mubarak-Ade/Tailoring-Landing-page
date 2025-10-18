@@ -37,18 +37,18 @@ const Hero = () => {
             >
                 <div className="bg-hero opacity-10 z-2 bg-cover bg-center absolute bg-fixed inset-0 h-full w-full"></div>
                 <div className="container mx-auto px-6 relative z-20">
-                    <div className="flex items-center gap-12">
+                    <div className="flex lg:flex-row flex-col-reverse items-center gap-12">
                         <div className="flex-1 text-center">
                             <motion.div
                                 initial="initial"
                                 variants={HeroAnimation}
                                 whileInView="view"
                             >
-                                <h1 className="text-6xl mb-6 font-bold text-left text-white">
-                                    <span className="text-custom-3 mb-2 block">
+                                <h1 className="lg:text-6xl text-5xl mb-6 font-bold text-left text-white">
+                                    <span className="text-custom-3 font-roboto mb-2 block">
                                         Tailored to Perfection -
                                     </span>
-                                    <span className="text-5xl">
+                                    <span className="lg:text-5xl text-4xl font-montserrat">
                                         Crafted just for you
                                     </span>
                                 </h1>
@@ -60,7 +60,7 @@ const Hero = () => {
                                 transition={{
                                     delay: 0.3,
                                 }}
-                                className="text-xl mb-10 mx-0 text-gray-100 text-start"
+                                className="text-xl font-poppins mb-10 mx-0 text-gray-100 text-start"
                             >
                                 Bespoke suits, dresses, and alterations that
                                 bring out your best fit
@@ -77,7 +77,7 @@ const Hero = () => {
                                     stiffness: 200,
                                     type: "spring",
                                 }}
-                                className="mt-5 cursor-pointer rounded-xl px-4 text-custom-3 border border-custom-3 font-semibold py-2"
+                                className="lg:mt-5 m-4 cursor-pointer rounded-xl px-4 text-custom-3 border border-custom-3 font-semibold py-2"
                             >
                                 Book a Fitting
                             </motion.button>
@@ -111,9 +111,9 @@ const Hero = () => {
                             }}
                             variants={SlideAnimation}
                             whileInView="view"
-                            className="flex-1 relative w-full max-w-2xl px-10"
+                            className="flex- relative w-full max-w-2xl p-8"
                         >
-                            <div className="aspect-[4/5] h-180 w-160 m-4 relative overflow-hidden rounded-2xl shadow-2xl">
+                            <div className="aspect-[4/5] lg:h-180 w-full  relative overflow-hidden rounded-2xl shadow-2xl">
                                 <AnimatePresence mode="wait">
                                     <motion.img
                                         layout

@@ -101,10 +101,10 @@ const Gallery = () => {
             className="px-6 py-6"
         >
             <div className="text-center">
-                <h1 className="text-4xl font-bold mt-5 text-white">
+                <h1 className="text-4xl font-open-sans font-bold mt-5 text-white">
                     Our Gallery
                 </h1>
-                <p className="text-white text-xl mt-5">
+                <p className="text-white text-xl font-playfair mt-5">
                     Explore our exquisite collection of custom-tailored
                     masterpieces
                 </p>
@@ -118,7 +118,7 @@ const Gallery = () => {
                     amount: 0.2,
                     margin: "0px 0px -100px 0px",
                 }}
-                className="grid grid-cols-3 place-items-center mt-10 gap-5"
+                className="grid grid-cols-1 p-2 md:grid-cols-2 lg:grid-cols-3 place-items-center mt-10 gap-5"
             >
                 {galleryData.map((gallery) => (
                     <motion.div
@@ -135,17 +135,17 @@ const Gallery = () => {
                             className="overflow-hidden h-70 flex items-center justify-center w-full rounded-t-xl p-4 bg-contain bg-center"
                         ></div>
                         <div className="p-6 text-white">
-                            <h1 className="text-2xl m-2 font-bold">
+                            <h1 className="text-2xl font-montserrat m-2 font-bold">
                                 {gallery.title}
                             </h1>
-                            <p className="m-2">{gallery.description}</p>
+                            <p className="m-2 text-base font-poppins">{gallery.description}</p>
                         </div>
                         <div onClick={() => setCurrentIndex(gallery.id)} className="flex items-center px-4 py-2 justify-between border-t- bg-custom-1/40 border-custom-1">
                             <motion.button
                                 variants={buttonVariant}
                                 whileHover="hover"
                                 whileTap="tap"
-                                className="text-sm rounded-xl cursor-pointer text-custom-1 font-bold bg-custom-2 px-6 m-2 py-4 flex gap-2 items-center"
+                                className="text-sm font-open-sans rounded-xl cursor-pointer text-custom-1 font-bold bg-custom-2 px-6 m-2 py-4 flex gap-2 items-center"
                             >
                                 View Detail
                                 <motion.span variants={iconVariant}>

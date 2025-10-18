@@ -31,9 +31,7 @@ const BorderAnimation = {
     },
 };
 
-const DividerAnimation = {
-    
-}
+
 
 
 export {BorderAnimation}

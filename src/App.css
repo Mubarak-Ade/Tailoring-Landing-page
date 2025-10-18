@@ -1,14 +1,43 @@
 @import "tailwindcss";
 @import url("./font.css");
 
-body {
-    background: linear-gradient(135deg, var(--color-custom-1) 0%, var(--color-custom-2) 100%);
+@font-face {
+    font-family: "poppins";
+    src: url('./assets/font/Poppins/Poppins-Regular.ttf');
+}
+
+@font-face {
+    font-family: "playfair";
+    src: url('./assets/font/Playfair_Display/PlayfairDisplay-VariableFont_wght.ttf');
+}
+
+@font-face {
+    font-family: "montserrat";
+    src: url('./assets/font/Montserrat/Montserrat-VariableFont_wght.ttf');
+}
+
+@font-face {
+    font-family: "roboto-mono";
+    src: url('./assets/font/Roboto_Mono/RobotoMono-VariableFont_wght.ttf');
+}
+
+@font-face {
+    font-family: "sour-gummy";
+    src: url('./assets/font/Sour_Gummy/static/SourGummy-Regular.ttf');
+}
+
+@font-face {
+    font-family: "open-sans";
+    src: url('./assets/font/Open_Sans/OpenSans-VariableFont_wdth,wght.ttf');
 }
 
 @theme {
     --font-poppins: "poppins";
-    --font-lora: "lora";
+    --font-roboto: "roboto-mono";
     --font-montserrat: "montserrat";
+    --font-playfair: "playfair";
+    --font-sour-gummy: "sour-gummy";
+    --font-open-sans: "open-sans";
     --color-custom-1: #07004D;
     --color-custom-2: #2D82B7;
     --color-custom-3: #42E2B8;
@@ -16,4 +45,9 @@ body {
     --color-custom-5: #EB8A90;
     --background-image-hero: url('./assets/images/hero.png');
     --background-image-about: url('./assets/images/about.png');
+}
+
+
+body {
+    background: linear-gradient(135deg, var(--color-custom-1) 0%, var(--color-custom-2) 100%);
 }

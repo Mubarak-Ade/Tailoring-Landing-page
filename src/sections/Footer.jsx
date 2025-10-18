@@ -21,7 +21,7 @@ const Footer = () => {
             initial="initial"
             whileInView="view"
             variants={containerVariant}
-            className="grid grid-cols-2 gap-5 overflow-hidden bg-linear-to-l px-8 py-6 from-custom-1 via-custom-2 to-custom-1"
+            className="grid grid-cols-1 md:grid-cols-2 gap-5 overflow-hidden bg-linear-to-l px-8 py-6 from-custom-1 via-custom-2 to-custom-1"
         >
             <motion.div variants={footerChildVariant} className="px-6 py-4">
                 <h2 className="text-white font-bold text-3xl">About us</h2>
@@ -204,7 +204,7 @@ const Footer = () => {
                         type="email"
                         name="email"
                         placeholder="Enter your Email address"
-                        className="border-2 outline-none shadow-2xl shadow-custom-1 border-custom-2 bg-white/10 h-12 rounded-xl text-white w-120 px-4 py-2"
+                        className="border-2 outline-none shadow-2xl shadow-custom-1 border-custom-2 bg-white/10 h-12 rounded-xl text-white w-full lg:w-3/5 px-4 py-2"
                         id=""
                     />
                     <motion.button
@@ -220,7 +220,7 @@ const Footer = () => {
                             stiffness: 100,
                         }}
                         type="submit"
-                        className="cursor-pointer  w-120 mt-2 bg-gradient-to-l  from-custom-2 to-custom-1 rounded-xl h-12 shadow-2xl text-xl text-white font-bold"
+                        className="cursor-pointer w-full lg:w-3/5 mt-2 bg-gradient-to-l  from-custom-2 to-custom-1 rounded-xl h-12 shadow-2xl text-xl text-white font-bold"
                     >
                         Subscribe
                     </motion.button>

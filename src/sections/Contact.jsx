@@ -10,7 +10,7 @@ const Contact = () => {
             whileInView="view"
             name="contact"
             variants={containerVariant}
-            className="py-16 px-6 bg-custom-2 flex items-center justify-center flex-col"
+            className="py-16 px-6 bg-custom-2 font-montserrat flex items-center justify-center flex-col"
         >
             <motion.div
                 initial={{
@@ -26,7 +26,7 @@ const Contact = () => {
                     type: "spring",
                     stiffness: 200,
                 }}
-                className="flex mt-8 w-full bg-linear-45 from-custom-1 to-custom-2 rounded-4xl overflow-hidden"
+                className="flex flex-col-reverse lg:flex-row mt-8 w-full bg-linear-45 from-custom-1 to-custom-2 rounded-4xl overflow-hidden"
             >
                 {/* Contact form or details can be added here */}
                 <div className="flex-1 px-8 py-14">
@@ -51,12 +51,12 @@ const Contact = () => {
                             transition={{
                                 ease: "linear",
                             }}
-                            className="mt-8 flex gap-4 cursor-pointer text-white"
+                            className="mt-8 flex items-center gap-4 cursor-pointer text-white"
                         >
-                            <span className="text-2x rounded-full bg-custom-2/40 p-4 border border-custom-2">
+                            <span className="text-2xl rounded-full bg-custom-2/40 h-15 w-15 lg:w-20 lg:h-20 flex items-center justify-center border border-custom-2">
                                 <contact.icon />
                             </span>
-                            <div className="">
+                            <div className="flex-1">
                                 <h4>{contact.head}</h4>
                                 <p>{contact.content}</p>
                             </div>
@@ -67,7 +67,7 @@ const Contact = () => {
                     <h1 className="text-3xl font-bold text-custom-1">
                         Schedule a Consultation
                     </h1>
-                    <form className="flex flex-col gap-4 max-w-lg mx-auto mt-8">
+                    <form className="flex flex-col font-poppins gap-4 max-w-lg mx-auto mt-8">
                         <div className="flex flex-col text-custom-1 gap-2">
                             <label className="font-bold text-base">Name</label>
                             <input

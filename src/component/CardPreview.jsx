@@ -38,10 +38,10 @@ const CardPreview = ({ currentIndex, setCurrentIndex }) => {
                         }}
                         className="flex relative items-center flex-col h-160 rounded-xl shadow-2xl z-110 px-6 py-8 bg-linear-100 from-60% from-custom-1 to-custom-2 overflow-hidden max-w-2xl"
                     >
-                        <h1 className="text-white text-3xl font-bold">
+                        <h1 className="text-white font-montserrat text-3xl font-bold">
                             {galleryData[currentIndex].title}
                         </h1>
-                        <p className="text-base text-center mx-10 mt-2 text-white">
+                        <p className="text-sm font-open-sans text-center mx-10 mt-2 text-white">
                             {galleryData[currentIndex].details}
                         </p>
                         <div className="w-80 mt-2 shadow-[0_5px_18px] shadow-black/50 rounded-xl flex flex-col  items-center">
@@ -52,13 +52,13 @@ const CardPreview = ({ currentIndex, setCurrentIndex }) => {
                                 }}
                             ></div>
                             <ul className="text-white px-5 mt-4 list-disc">
-                                <h6 className="text-xl text-white font-bold">
+                                <h6 className="text-xl font-sour-gummy text-white font-bold">
                                     More Detail
                                 </h6>
                                 {galleryData[currentIndex].more.map(
                                     (more, index) => (
                                         <li
-                                            className="text-sm mt-2 mx-4"
+                                            className="text-sm font-poppins mt-2 mx-4"
                                             key={index}
                                         >
                                             {more}
@@ -80,7 +80,7 @@ const CardPreview = ({ currentIndex, setCurrentIndex }) => {
                                     type: "spring",
                                     stiffness: 100,
                                 }}
-                                className="text-custom-1 cursor-pointer w-40 text-base font-bold rounded-lg px-6 py-2 m-4 bg-custom-2"
+                                className="text-custom-1 font-open-sans cursor-pointer w-40 text-base font-bold rounded-lg px-6 py-2 m-4 bg-custom-2"
                             >
                                 Book Now
                             </motion.button>

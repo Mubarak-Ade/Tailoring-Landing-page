@@ -23,10 +23,10 @@ const CTASection = () => {
                 }}
                 className="z-50 h-100 relative flex items-center justify-center flex-col gap-8"
             >
-                <h1 className="text-custom-3 text-5xl font-bold">
+                <h1 className="text-custom-3 md:text-5xl text-3xl font-bold font-playfair">
                     Your next perfect fit is one booking away.
                 </h1>
-                <p className="text-xl text-white">
+                <p className="md:text-lg text-base px-5 text-white font-poppins">
                     Collaborate with us to design exquisite, custom attire that
                     embodies your unique elegance.
                 </p>
@@ -44,7 +44,7 @@ const CTASection = () => {
                         type: "spring",
                         stiffness: 100,
                     }}
-                    className="bg-linear-60 from-custom-2 to-custom-1 cursor-pointer text-custom-4 font-bold px-6 w-100 text-lg rounded-2xl py-4"
+                    className="bg-linear-60 font-open-sans from-custom-2 to-custom-1 cursor-pointer text-custom-4 font-bold px-6 max-w-100 text-lg rounded-2xl py-4"
                 >
                     Book a fitting
                 </motion.button>
