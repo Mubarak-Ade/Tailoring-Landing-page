@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Logo from "../assets/images/logo.png";
+import Logo from "../assets/images/logo_1.png";
 import { AnimatePresence, delay, motion, scale } from "motion/react";
 import { Link } from "react-scroll";
 import { Menu, X } from "lucide-react";

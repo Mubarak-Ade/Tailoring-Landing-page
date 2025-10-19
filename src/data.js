@@ -48,7 +48,7 @@ const testimonials = [
         name: "Aisha Bello",
         location: "lagos, Nigeria",
         feedback:
-            "Brought my Ankara fabric and had no idea what to make. Mubarak turned it into a stunning gown that fits like it was made by angels. The finishing is perfect — everyone at my event asked who my tailor was!",
+            "Brought my Ankara fabric and had no idea what to make. Anike turned it into a stunning gown that fits like it was made by angels. The finishing is perfect — everyone at my event asked who my tailor was!",
         image: testinialImage2,
     },
     {
@@ -64,7 +64,7 @@ const testimonials = [
         name: "Folake Adebayo",
         location: "Ibadan, Nigeria",
         feedback:
-            "I wanted something simple yet traditional for my engagement. The Adire gown Mubarak made was a masterpiece — bold blue patterns, elegant flow, and so comfortable. My family couldn’t stop praising it!",
+            "I wanted something simple yet traditional for my engagement. The Adire gown Anike made was a masterpiece — bold blue patterns, elegant flow, and so comfortable. My family couldn’t stop praising it!",
         image: testinialImage4,
     },
     {
@@ -72,7 +72,7 @@ const testimonials = [
         name: "Chinwe Okafor",
         location: "Enugu, Nigeria",
         feedback:
-            "I wore the George wrapper Mubarak tailored for my brother’s wedding — the beadwork, the fitting, everything screamed class! I’ve found my lifetime tailor",
+            "I wore the George wrapper Anike tailored for my brother’s wedding — the beadwork, the fitting, everything screamed class! I’ve found my lifetime tailor",
         image: testinialImage3,
     },
     {

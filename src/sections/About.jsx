@@ -100,7 +100,7 @@ const About = () => {
                     }}
                     className="text-xl lg:p-0 md:p-4 p-10 font-poppins mt-10 flex-1 text-custom-1"
                 >
-                    With over 10 years of experience, AIM Tailoring combines
+                    With over 10 years of experience, Anike Tailoring combines
                     craftsmanship and precision to deliver outfits that fit your
                     style and personality. Each piece is made with care, from
                     the first stitch to the final button.

@@ -22,7 +22,7 @@ const Gallery = () => {
                 type: "spring",
                 stiffness: 100,
                 durantion: 2,
-                ease: "easeInOut",
+                ease: "easeInO",
                 staggerChildren: 0.5,
                 when: "beforeChildren",
             },
@@ -41,7 +41,7 @@ const Gallery = () => {
                 delay: index * 0.15,
                 type: "spring",
                 stiffness: 100,
-                duration: 2,
+                duration: 1,
             },
         }),
         hover: {
@@ -90,7 +90,6 @@ const Gallery = () => {
     };
 
     const [currentIndex, setCurrentIndex] = useState(null);
-    
 
     return (
         <motion.section
@@ -98,6 +97,11 @@ const Gallery = () => {
             whileInView="view"
             variants={containerVariant}
             name="gallery"
+            viewport={{
+                once: true,
+                amount: 0.2,
+                margin: "0px 0px -100px 0px",
+            }}
             className="px-6 py-6"
         >
             <div className="text-center">
@@ -109,17 +113,7 @@ const Gallery = () => {
                     masterpieces
                 </p>
             </div>
-            <motion.div
-                variants={variant}
-                initial="initial"
-                whileInView="view"
-                viewport={{
-                    once: true,
-                    amount: 0.2,
-                    margin: "0px 0px -100px 0px",
-                }}
-                className="grid grid-cols-1 p-2 md:grid-cols-2 lg:grid-cols-3 place-items-center mt-10 gap-5"
-            >
+            <motion.div className="grid grid-cols-1 p-2 md:grid-cols-2 lg:grid-cols-3 place-items-center mt-10 gap-5">
                 {galleryData.map((gallery) => (
                     <motion.div
                         key={gallery.id}
@@ -138,9 +132,14 @@ const Gallery = () => {
                             <h1 className="text-2xl font-montserrat m-2 font-bold">
                                 {gallery.title}
                             </h1>
-                            <p className="m-2 text-base font-poppins">{gallery.description}</p>
+                            <p className="m-2 text-base font-poppins">
+                                {gallery.description}
+                            </p>
                         </div>
-                        <div onClick={() => setCurrentIndex(gallery.id)} className="flex items-center px-4 py-2 justify-between border-t- bg-custom-1/40 border-custom-1">
+                        <div
+                            onClick={() => setCurrentIndex(gallery.id)}
+                            className="flex items-center px-4 py-2 justify-between border-t- bg-custom-1/40 border-custom-1"
+                        >
                             <motion.button
                                 variants={buttonVariant}
                                 whileHover="hover"
@@ -159,7 +158,10 @@ const Gallery = () => {
                     </motion.div>
                 ))}
             </motion.div>
-            <CardPreview currentIndex={currentIndex} setCurrentIndex={setCurrentIndex} />
+            <CardPreview
+                currentIndex={currentIndex}
+                setCurrentIndex={setCurrentIndex}
+            />
         </motion.section>
     );
 };

@@ -36,7 +36,7 @@ const CardPreview = ({ currentIndex, setCurrentIndex }) => {
                             stiffness: 200,
                             ease: "easeIn",
                         }}
-                        className="flex relative items-center flex-col h-160 rounded-xl shadow-2xl z-110 px-6 py-8 bg-linear-100 from-60% from-custom-1 to-custom-2 overflow-hidden max-w-2xl"
+                        className="flex relative items-center md:h-160 flex-col h-full lg:h-160 rounded-xl shadow-2xl z-110 px-6 py-8 bg-linear-100 from-60% from-custom-1 to-custom-2 overflow-hidden max-w-3xl "
                     >
                         <h1 className="text-white font-montserrat text-3xl font-bold">
                             {galleryData[currentIndex].title}
