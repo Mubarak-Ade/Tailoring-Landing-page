@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import Navbar from "../component/Navbar";
 import Image from "../assets/images/mockimage.png";
 import Image1 from "../assets/images/mockimage1.png";
@@ -8,32 +8,29 @@ import { HeroAnimation, SlideAnimation } from "../animation/hero";
 
 const Hero = () => {
     const [slideCurrent, setSlideCurrent] = useState(0);
-    const slideImage = [Image, Image1, Image2];
+    const slideImage = useMemo(() => [Image, Image1, Image2], []);
 
-    const handleNextBtn = () => {
-        setSlideCurrent((prev) => (prev + 1) % slideImage.length);
-    };
-
-    const handlePrevBtn = () => {
-        setSlideCurrent(
-            (prev) => (prev - 1 + slideImage.length) % slideImage.length
-        );
-    };
+    const changeSlide = useCallback(
+        (direction = 1) => {
+            setSlideCurrent((prev) => (prev + direction) % slideImage.length);
+        },
+        [slideImage.length]
+    );
 
     useEffect(() => {
         const interviewId = setInterval(() => {
-            handleNextBtn();
+            changeSlide(1);
         }, 3000);
         return () => clearInterval(interviewId);
-    }, []);
+    }, [changeSlide]);
 
     return (
         <>
             <Navbar />
-            <motion.div
+            <motion.section
                 layout
                 name="hero"
-                className="relative min-h-screen overflow-hidden bg-linear-to-l from-custom-1 via-custom-2 to-custom-1"
+                className="relative min-h-screen overflow-hidden bg-gradient-to-l from-custom-1 via-custom-2 to-custom-1"
             >
                 <div className="bg-hero opacity-10 z-2 bg-cover bg-center absolute bg-fixed inset-0 h-full w-full"></div>
                 <div className="container mx-auto px-6 relative z-20">
@@ -120,7 +117,7 @@ const Hero = () => {
                                         key={slideImage[slideCurrent]}
                                         initial="initial"
                                         animate="animate"
-                                        exit="exite"
+                                        exit="exit"
                                         variants={SlideAnimation}
                                         transition={{
                                             duration: 0.8,
@@ -128,14 +125,14 @@ const Hero = () => {
                                         }}
                                         src={slideImage[slideCurrent]}
                                         className="absolute inset-0 w-full h-full object-contain"
-                                        alt=""
+                                        alt="Tailoring Showcase"
                                     />
                                 </AnimatePresence>
                             </div>
                         </motion.div>
                     </div>
                 </div>
-            </motion.div>
+            </motion.section>
         </>
     );
 };

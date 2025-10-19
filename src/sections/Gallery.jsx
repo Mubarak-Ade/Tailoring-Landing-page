@@ -1,95 +1,118 @@
 import { BsArrowRight } from "react-icons/bs";
-import React, { useState } from "react";
-import Image from "../assets/images/Gemini_Generated_Image_2bykny2bykny2byk.png";
-import Image1 from "../assets/images/Gemini_Generated_Image_6s6hic6s6hic6s6h.png";
-import Image2 from "../assets/images/Gemini_Generated_Image_948cco948cco948c.png";
-import Image3 from "../assets/images/Gemini_Generated_Image_9iqv4y9iqv4y9iqv.png";
-import Image4 from "../assets/images/Gemini_Generated_Image_o2nhnho2nhnho2nh.png";
-import Image5 from "../assets/images/Gemini_Generated_Image_qvzzm7qvzzm7qvzz.png";
-import { AnimatePresence, easeInOut, motion } from "motion/react";
+import { memo, useMemo, useState } from "react";
+import { motion } from "motion/react";
 import { containerVariant } from "../animation/general";
 import { galleryData } from "../data";
 import CardPreview from "../component/CardPreview";
 
-const Gallery = () => {
-    const variant = {
-        initial: {
-            opacity: 0,
+const cardVariants = {
+    initial: {
+        y: 50,
+        opacity: 0,
+    },
+    view: (index) => ({
+        y: 0,
+        opacity: 1,
+        transition: {
+            delay: index * 0.15,
+            type: "spring",
+            stiffness: 100,
+            duration: 1,
         },
-        view: {
-            opacity: 1,
-            transition: {
-                type: "spring",
-                stiffness: 100,
-                durantion: 2,
-                ease: "easeInO",
-                staggerChildren: 0.5,
-                when: "beforeChildren",
-            },
-        },
-    };
+    }),
+    hover: {
+        background:
+            "linear-gradient(120deg, var(--color-custom-2), var(--color-custom-1)",
+        color: "var(--color-white)",
+        scale: 1.05,
+        boxShadow: "0 10px 20px rgba(0,0,0,0.2)",
+    },
+};
 
-    const cardVariants = {
-        initial: {
-            y: 20,
-            opacity: 0,
+const buttonVariant = {
+    hover: {
+        background: "var(--color-custom-1)",
+        color: "var(--color-white)",
+        transition: {
+            duration: 0.3,
         },
-        view: (index) => ({
-            y: 0,
-            opacity: 1,
-            transition: {
-                delay: index * 0.15,
-                type: "spring",
-                stiffness: 100,
-                duration: 1,
-            },
-        }),
-        hover: {
-            background:
-                "linear-gradient(120deg, var(--color-custom-2), var(--color-custom-1)",
-            color: "var(--color-white)",
-            scale: 1.05,
-            boxShadow: "0 10px 20px rgba(0,0,0,0.2)",
-        },
-    };
+    },
+    tap: {
+        scale: 0.95,
+    },
+};
 
-    const imageVariant = {
-        initial: {},
-        hover: {
-            scale: 1.2,
-        },
+const iconVariant = {
+    hover: {
+        x: 15,
         transition: {
             type: "spring",
-            stiffness: 150,
-            durantion: 1,
+            stiffness: 250,
+            duration: 0.3,
         },
-    };
+    },
+};
 
-    const buttonVariant = {
-        hover: {
-            background: "var(--color-custom-1)",
-            color: "var(--color-white)",
-            transition: {
-                durantion: 1,
-            },
-        },
-        tap: {
-            scale: 0.95,
-        },
-    };
+const GalleryCard = memo(({ gallery, onSelect, index }) => {
+    return (
+        <motion.div
+            key={gallery.id}
+            variants={cardVariants}
+            whileInView="view"
+            whileHover="hover"
+            custom={index}
+            viewport={{ once: true, amount: 0.3 }}
+            className="overflow-hidden lg:w-90 border-2 border-custom-1 rounded-2xl flex flex-col"
+        >
+            <div
+                style={{ backgroundImage: `url(${gallery.image})` }}
+                className="overflow-hidden bg-cover h-72 flex items-center justify-center w-full rounded-t-xl p-4 bg-center"
+            ></div>
+            <div className="p-6 space-y-3 text-white">
+                <h1 className="text-2xl font-montserrat font-bold">
+                    {gallery.title}
+                </h1>
+                <p className="text-sm md:text-base leading-relaxed text-gray-200 font-poppins">
+                    {gallery.description}
+                </p>
+            </div>
+            <div
+                onClick={() => onSelect(gallery.id)}
+                className="flex items-center px-4 py-2 justify-between border-t- bg-custom-1/40 border-custom-1"
+            >
+                <motion.button
+                    variants={buttonVariant}
+                    whileHover="hover"
+                    whileTap="tap"
+                    className="text-sm font-open-sans rounded-xl 
+                    cursor-pointer text-white font-bold bg-gradient-to-r 
+                    w-full md:w-auto
+                    from-custom-2 to-custom-1 px-6 py-4 flex gap-2 items-center transition-all duration-300 shadow-md hover:shadow-lg"
+                >
+                    View Detail
+                    <motion.span variants={iconVariant}>
+                        <BsArrowRight size={20} />
+                    </motion.span>
+                </motion.button>
+            </div>
+        </motion.div>
+    );
+});
 
-    const iconVariant = {
-        hover: {
-            x: 15,
-            transition: {
-                type: "spring",
-                stiffness: 250,
-                durantion: 1,
-            },
-        },
-    };
-
+const Gallery = () => {
     const [currentIndex, setCurrentIndex] = useState(null);
+    const card = useMemo(
+        () =>
+            galleryData.map((gallery, index) => (
+                <GalleryCard
+                    gallery={gallery}
+                    key={gallery.id}
+                    index={index}
+                    onSelect={setCurrentIndex}
+                />
+            )),
+        []
+    );
 
     return (
         <motion.section
@@ -99,8 +122,8 @@ const Gallery = () => {
             name="gallery"
             viewport={{
                 once: true,
-                amount: 0.2,
-                margin: "0px 0px -100px 0px",
+                amount: 0.1,
+                // margin: "0px 0px -100px 0px",
             }}
             className="px-6 py-6"
         >
@@ -113,54 +136,12 @@ const Gallery = () => {
                     masterpieces
                 </p>
             </div>
-            <motion.div className="grid grid-cols-1 p-2 md:grid-cols-2 lg:grid-cols-3 place-items-center mt-10 gap-5">
-                {galleryData.map((gallery) => (
-                    <motion.div
-                        key={gallery.id}
-                        initial="initial"
-                        variants={cardVariants}
-                        whileInView="view"
-                        whileHover="hover"
-                        custom={gallery.id}
-                        className="overflow-hidden w-90 border-2 border-custom-1 rounded-2xl flex flex-col"
-                    >
-                        <div
-                            style={{ backgroundImage: `url(${gallery.image})` }}
-                            className="overflow-hidden h-70 flex items-center justify-center w-full rounded-t-xl p-4 bg-contain bg-center"
-                        ></div>
-                        <div className="p-6 text-white">
-                            <h1 className="text-2xl font-montserrat m-2 font-bold">
-                                {gallery.title}
-                            </h1>
-                            <p className="m-2 text-base font-poppins">
-                                {gallery.description}
-                            </p>
-                        </div>
-                        <div
-                            onClick={() => setCurrentIndex(gallery.id)}
-                            className="flex items-center px-4 py-2 justify-between border-t- bg-custom-1/40 border-custom-1"
-                        >
-                            <motion.button
-                                variants={buttonVariant}
-                                whileHover="hover"
-                                whileTap="tap"
-                                className="text-sm font-open-sans rounded-xl cursor-pointer text-custom-1 font-bold bg-custom-2 px-6 m-2 py-4 flex gap-2 items-center"
-                            >
-                                View Detail
-                                <motion.span variants={iconVariant}>
-                                    <BsArrowRight size={20} />
-                                </motion.span>
-                            </motion.button>
-                            {/* <h6 className="text-xl text-white font-bold">
-                                ₦100,000
-                            </h6> */}
-                        </div>
-                    </motion.div>
-                ))}
+            <motion.div className="grid grid-cols-1 sm:grid-cols-2 max-w-6xl lg:grid-cols-3 place-items-center mx-auto gap-6 md:gap-8">
+                {card}
             </motion.div>
             <CardPreview
                 currentIndex={currentIndex}
-                setCurrentIndex={setCurrentIndex}
+                onSelect={setCurrentIndex}
             />
         </motion.section>
     );

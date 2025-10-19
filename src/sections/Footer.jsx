@@ -23,7 +23,7 @@ const Footer = () => {
             variants={containerVariant}
             className="grid grid-cols-1 md:grid-cols-2 gap-5 overflow-hidden bg-linear-to-l px-8 py-6 from-custom-1 via-custom-2 to-custom-1"
         >
-            <motion.div variants={footerChildVariant} className="px-6 py-4">
+            <motion.div variants={footerChildVariant} className="">
                 <h2 className="text-white font-bold text-3xl">About us</h2>
                 <p className="text-white">
                     We are master tailors dedicated to creating bespoke garments
@@ -74,7 +74,7 @@ const Footer = () => {
                 </div>
             </motion.div>
             <motion.div variants={footerChildVariant} className="">
-                <h2 className="text-2xl px-6 py-4 text-white font-bold">
+                <h2 className="text-2xl text-white font-bold">
                     Quick Links
                 </h2>
                 <ul className="text-white w-80">

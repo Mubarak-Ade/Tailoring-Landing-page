@@ -1,9 +1,9 @@
-import React from "react";
+import React, { memo } from "react";
 import Image from "../assets/images/mock.png";
 import { motion } from "motion/react";
 import Services from "./Services";
 import { containerVariant } from "../animation/general";
-import { BorderAnimation } from "../animation/about";
+import { BorderAnimation, dividerVariants, imageVariants, textVariants, titleVariants } from "../animation/about";
 
 const About = () => {
     return (
@@ -15,89 +15,24 @@ const About = () => {
             className="bg-custom-4 flex lg:flex-row flex-col items-center justify-center gap-10 overflow-hidden px-6 py-2"
         >
             <motion.div
-                initial={{
-                    opacity: 0,
-                    scale: 0,
-                }}
-                animate={{
-                    borderRadius: [
-                        "60% 40% 30% 70% / 60% 30% 70% 40%",
-                        "40% 60% 70% 30% / 50% 70% 30% 60%",
-                        "60% 40% 30% 70% / 60% 30% 70% 40%",
-                    ],
-                }}
-                whileInView={{
-                    opacity: 1,
-                    scale: 1,
-                }}
-                transition={{
-                    scale: {
-                        duration: 1,
-                        type: "spring",
-                        stiffness: 100,
-                    },
-                    opacity: {
-                        duration: 1,
-                    },
-                    borderRadius: {
-                        duration: 8,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                    },
-                }}
+                {...imageVariants}
                 className="flex-1 bg-custom-5 size-full rounded-full overflow-hidden flex items-center justify-center"
             >
-                <img src={Image} alt="" className=" object-center" />
+                <img src={Image} alt="Tailor Craftmanship" className=" object-center" loading="lazy" />
             </motion.div>
             <motion.span
-                initial={{
-                    scale: 0,
-                }}
-                whileInView={{
-                    scale: 1,
-                }}
-                transition={{
-                    duration: 1,
-                    type: "spring",
-                    stiffness: 300,
-                }}
+                {...dividerVariants}
                 className="w-2 bg-custom-1 hidden lg:block h-50 p-1 rounded-t-sm rounded-b-sm"
             ></motion.span>
             <motion.div className="flex-1 h-100 items-center justify-center flex flex-col p-10">
                 <motion.h1
-                    initial={{
-                        opacity: 0,
-                        y: 20,
-                    }}
-                    whileInView={{
-                        opacity: 1,
-                        y: 0,
-                    }}
-                    transition={{
-                        delay: 0.2,
-                        duration: 0.5,
-                        type: "spring",
-                        stiffness: 300,
-                    }}
+                    {...titleVariants}
                     className="text-5xl font-roboto text-custom-1 font-bold text-center mt-10"
                 >
                     About Us
                 </motion.h1>
                 <motion.p
-                    initial={{
-                        opacity: 0,
-                        x: 20,
-                    }}
-                    whileInView={{
-                        opacity: 1,
-                        x: 0,
-                    }}
-                    transition={{
-                        delay: 0.3,
-                        duration: 0.5,
-                        type: "spring",
-                        stiffness: 300,
-                    }}
+                    {...textVariants}
                     className="text-xl lg:p-0 md:p-4 p-10 font-poppins mt-10 flex-1 text-custom-1"
                 >
                     With over 10 years of experience, Anike Tailoring combines
@@ -111,4 +46,4 @@ const About = () => {
     );
 };
 
-export default About;
+export default memo(About);
