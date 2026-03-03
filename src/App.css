@@ -31,6 +31,11 @@
     src: url('./assets/font/Open_Sans/OpenSans-VariableFont_wdth,wght.ttf');
 }
 
+@font-face {
+    font-family: "inter";
+    src: url('./assets/font/Inter (1)/Inter-VariableFont_opsz\,wght.ttf');
+}
+
 @theme {
     --font-poppins: "poppins";
     --font-roboto: "roboto-mono";
@@ -38,16 +43,30 @@
     --font-playfair: "playfair";
     --font-sour-gummy: "sour-gummy";
     --font-open-sans: "open-sans";
-    --color-custom-1: #07004D;
-    --color-custom-2: #2D82B7;
-    --color-custom-3: #42E2B8;
-    --color-custom-4: #F3DFBF;
-    --color-custom-5: #EB8A90;
-    --background-image-hero: url('./assets/images/hero.png');
+    --font-inter: "inter"
+    --color-coffee-bean: hsla(349, 34%, 13%, 1);
+    --color-silver: hsla(220, 28%, 83%, 1);
+    --color-metallic-gold: hsla(45, 65%, 53%, 1);
+    --color-hover: "hsla(45, 85%, 53%, 1)";
+    --color-coral-black: hsla(180, 6%, 3%, 1);
+    --color-iron-grey: hsla(120, 1%, 15%, 1);
+    --color-onyx: hsla(50, 0%, 10%, 1);
+
+    --color-gold: #D5AF36;
+    --color-dark-fg: #161617;
+    --color-dark-text: #585C62;
+    --color-dark-bg: #070706;
+    --color-brown: #281416;
+
+    --color-light-bg: #FDFDFC;
+    --color-light-fg: #FCF9F5;
+    --color-light-text: #DCDBDA;
+
+    --background-image-hero: url('./assets/blurry-gradient-haikei.svg');
     --background-image-about: url('./assets/images/about.png');
 }
 
 
 body {
-    background: linear-gradient(135deg, var(--color-custom-1) 0%, var(--color-custom-2) 100%);
+    background-color: var(--color-dark-bg);
 }
