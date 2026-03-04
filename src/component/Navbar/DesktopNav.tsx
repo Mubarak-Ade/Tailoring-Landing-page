@@ -61,7 +61,7 @@ export const DesktopNav = ({ navList, showNav, onShowNav }: Props) => {
                         background: 'hsla(45, 85%, 53%, 1)',
                         boxShadow: '0 4px 20px hsla(45, 85%, 53%, 1)',
                     }}
-                    className="ml-4 hidden lg:block rounded-full bg-metallic-gold px-8 py-3 font-medium cursor-pointer text-sm font-inter text-dark-bg"
+                    className="ml-4 hidden lg:block rounded-full text-center bg-metallic-gold px-8 py-3 font-medium cursor-pointer text-sm font-inter text-dark-bg"
                 >
                     Book Now
                 </motion.a>

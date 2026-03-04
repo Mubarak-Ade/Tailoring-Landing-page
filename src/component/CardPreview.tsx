@@ -91,7 +91,7 @@ const CardPreview = ({ currentIndex, onSelect }: CardPreviewProps) => {
                         <h1 className="text-white font-montserrat text-2xl lg:text-3xl font-bold">
                             {galleryData[currentIndex]?.title}
                         </h1>
-                        <p className="text-sm lg:text-base md:mx-10 mt-5 font-open-sans text-center text-white">
+                        <p className="text-xs md:text-base md:mx-10 mt-5 font-open-sans text-center text-white">
                             {galleryData[currentIndex]?.details}
                         </p>
                         <div className="max-w-xs mt-5 relative w-full h-full shadow-[0_5px_18px] overflow-hidden shadow-black/50 rounded-xl flex flex-col  items-center">

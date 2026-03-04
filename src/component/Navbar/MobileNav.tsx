@@ -83,7 +83,7 @@ export const MobileNav = ({ showNav, closeMobileMenu, navList }: Props) => {
                                 background: 'hsla(45, 85%, 53%, 1)',
                                 boxShadow: '0 4px 20px hsla(45, 85%, 53%, 1)',
                             }}
-                            className="mt-8 rounded-xl bg-metallic-gold px-5 py-3 font-poppins text-sm font-semibold text-dark-bg"
+                            className="mt-8 rounded-xl text-center bg-metallic-gold px-5 py-3 font-poppins text-sm font-semibold text-dark-bg"
                         >
                             Book Now
                         </motion.a>

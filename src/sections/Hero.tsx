@@ -95,7 +95,7 @@ const Hero = () => {
                                         ...smoothSpring,
                                     }}
                                     viewport={{ once: true, amount: 0.4 }}
-                                    className=" cursor-pointer rounded-full px-10 py-5 text-dark-bg font-bold bg-metallic-gold"
+                                    className=" cursor-pointer text-center rounded-full px-10 py-5 text-dark-bg font-bold bg-metallic-gold"
                                 >
                                     Book a Fitting
                                 </motion.a>

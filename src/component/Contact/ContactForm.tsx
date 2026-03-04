@@ -25,8 +25,10 @@ export const ContactForm = () => {
             setIsLoading(true)
             const res = await axios.post("https://send-message-tsfn.onrender.com/send", contact)
             setIsLoading(false)
+            setContact({name: "", email: "", message: ""})
             alert(res.data?.message)
         } catch (error) {
+            setIsLoading(false)
             console.error(error)
         }
         
