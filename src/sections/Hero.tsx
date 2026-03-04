@@ -10,6 +10,8 @@ import Image5 from '../assets/cloth_images/ocean-bloom-ankara-gown.png';
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
 import { HeroAnimation, SlideAnimation } from '../animation/hero';
 import { smoothSpring } from '../animation/general';
+import { Link } from 'react-scroll';
+import { WhatsAppLink } from '../utils/custom';
 
 const Hero = () => {
     const [slideCurrent, setSlideCurrent] = useState(0);
@@ -29,6 +31,8 @@ const Hero = () => {
         return () => clearInterval(interviewId);
     }, [changeSlide]);
 
+    const whatsappUrl = WhatsAppLink();
+
     return (
         <>
             <Navbar />
@@ -38,7 +42,7 @@ const Hero = () => {
                 className="relative p-5 flex items-center justify-between min-h-screen overflow-hidden pt-24 bg-gradient-to-tr from-brown via-dark-fg to-dark-bg"
             >
                 {/* <div className="bg-hero opacity-10 z-2 bg-cover bg-center absolute bg-fixed inset-0 h-full w-full"></div> */}
-                <div className="container mx-auto px-6 relative z-20">
+                <div className="container mx-auto md:px-6 relative z-20">
                     <div className="flex lg:flex-row flex-col-reverse items-center gap-12">
                         <motion.div
                             className="flex-1"
@@ -78,12 +82,15 @@ const Hero = () => {
                                 bring out your best fit and style in the most sophisticated way.
                             </motion.p>
                             <div className="flex md:flex-row flex-col gap-4 justify-start">
-                                <motion.button
+                                <motion.a
                                     initial="initial"
                                     variants={HeroAnimation}
                                     whileInView="view"
                                     whileHover="cta_hover"
                                     whileTap="cta_tap"
+                                    href={whatsappUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                     transition={{
                                         ...smoothSpring,
                                     }}
@@ -91,7 +98,7 @@ const Hero = () => {
                                     className=" cursor-pointer rounded-full px-10 py-5 text-dark-bg font-bold bg-metallic-gold"
                                 >
                                     Book a Fitting
-                                </motion.button>
+                                </motion.a>
                                 <motion.button
                                     initial="initial"
                                     variants={HeroAnimation}
@@ -101,10 +108,19 @@ const Hero = () => {
                                     transition={{
                                         ...smoothSpring,
                                     }}
+                                    className=" cursor-pointer rounded-full px-12 py-4 text-center text-white font-bold bg-transparent border border-silver"
                                     viewport={{ once: true, amount: 0.4 }}
-                                    className=" cursor-pointer rounded-full px-12 py-4 text-white font-bold bg-transparent border border-silver"
                                 >
-                                    View Gallery
+                                    <Link
+                                        to="gallery"
+                                        spy={true}
+                                        smooth={true}
+                                        offset={-70}
+                                        duration={500}
+                                        // activeClass="text-gold"
+                                    >
+                                        View Gallery
+                                    </Link>
                                 </motion.button>
                             </div>
                         </motion.div>
@@ -127,7 +143,7 @@ const Hero = () => {
                             }}
                             className="w-full max-w-xl p-8 flex items-center justify-center"
                         >
-                            <div className="aspect-square lg:h-150 w-full bg-brown/20 max-w-lg  relative overflow-hidden rounded-t-full shadow-2xl">
+                            <div className="aspect-square md:h-140 w-full bg-brown/20 max-w-lg  relative overflow-hidden rounded-t-full shadow-2xl">
                                 <AnimatePresence>
                                     <motion.img
                                         key={slideImage[slideCurrent]}
@@ -137,7 +153,7 @@ const Hero = () => {
                                         variants={SlideAnimation}
                                         transition={{
                                             duration: 1,
-                                            ease: "easeInOut",
+                                            ease: 'easeInOut',
                                         }}
                                         src={slideImage[slideCurrent]}
                                         className="absolute inset-0 w-full h-full object-cover"

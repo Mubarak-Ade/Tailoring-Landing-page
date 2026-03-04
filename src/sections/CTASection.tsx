@@ -1,7 +1,9 @@
 import { motion } from 'motion/react';
 import React from 'react';
+import { WhatsAppLink } from '../utils/custom';
 
 const CTASection = () => {
+    const whatsappme = WhatsAppLink();
     return (
         <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -31,12 +33,13 @@ const CTASection = () => {
                     Collaborate with us to design exquisite, custom attire that embodies your unique
                     elegance.
                 </p>
-                <motion.button
+                <motion.a
+                    href={whatsappme}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     whileHover={{
-                        background:
-                            'linear-gradient(60deg, var(--color-custom-1), var(--color-custom-2))',
-                        color: 'var(--color-white)',
-                        boxShadow: '0 10px 30px rgba(255,255,255,0.2)',
+                        background: 'hsla(45, 75%, 53%, 1)',
+                        boxShadow: '0 10px 30px hsla(45, 65%, 53%, 1)',
                     }}
                     whileTap={{
                         scale: 0.9,
@@ -45,10 +48,10 @@ const CTASection = () => {
                         type: 'spring',
                         stiffness: 100,
                     }}
-                    className="bg-gold font-open-sans cursor-pointer text-dark-fg font-bold px-6 max-w-100 text-sm rounded-full py-3"
+                    className="bg-metallic-gold font-open-sans cursor-pointer text-dark-fg font-bold px-6 max-w-100 text-sm rounded-full py-3"
                 >
                     Book a fitting
-                </motion.button>
+                </motion.a>
             </motion.div>
         </motion.div>
     );

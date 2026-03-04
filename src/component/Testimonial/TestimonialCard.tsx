@@ -13,6 +13,7 @@ export const TestimonialCard = ({ currentIndex } : {currentIndex: number}) => (
                 variants={cardVariant}
                 custom={index}
                 key={testimonial.id}
+                viewport={{once: true}}
                 className={`border shadow-2xl ${
                     index === currentIndex
                         ? "border-gold border-4"

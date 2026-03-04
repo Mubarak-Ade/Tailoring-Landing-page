@@ -70,6 +70,7 @@ const Testimonial = () => {
             initial="initial"
             whileInView="view"
             id="testimonial"
+            viewport={{once: true}}
             className="bg-brown flex items-center flex-col p-4"
         >
             <h1 className="text-4xl font-roboto font-bold m-2 text-white text-center">
@@ -77,6 +78,7 @@ const Testimonial = () => {
             </h1>
             <motion.div
                 whileInView={{ scale: [0.8, 1] }}
+                viewport={{once: true}}
                 transition={{ duration: 0.5, type: "spring", stiffness: 100 }}
                 className="max-w-4xl w-full bg-onyx rounded-3xl p-10"
             >

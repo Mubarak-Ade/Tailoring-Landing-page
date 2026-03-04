@@ -27,13 +27,13 @@ const contactInfo: Contact[] = [
         id: 1,
         icon: ImPhone,
         head: 'Call Us',
-        content: '+234 (0) 123 456 7890',
+        content: '+234 (0) 8140163554',
     },
     {
         id: 2,
         icon: MdEmail,
         head: 'Email Us',
-        content: 'info@bespoketailor.com',
+        content: 'adeshinaibrahim571@gmail.com',
     },
     {
         id: 3,

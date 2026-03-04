@@ -3,6 +3,7 @@ import React from 'react';
 import { drawerMotion } from '../../animation/navbar';
 import { Link } from 'react-scroll';
 import { X } from 'lucide-react';
+import { WhatsAppLink } from '../../utils/custom';
 interface Props {
     showNav: boolean;
     closeMobileMenu: () => void;
@@ -10,6 +11,9 @@ interface Props {
 }
 
 export const MobileNav = ({ showNav, closeMobileMenu, navList }: Props) => {
+
+    const whatsappUrl = WhatsAppLink()
+
     return (
         <AnimatePresence>
             {showNav && (
@@ -50,7 +54,7 @@ export const MobileNav = ({ showNav, closeMobileMenu, navList }: Props) => {
                                     whileHover={{
                                         backgroundColor: 'hsla(45, 85%, 53%, 1)',
                                         color: 'hsla(50, 0%, 10%, 1)',
-                                        borderRadius: "10px"
+                                        borderRadius: '10px',
                                     }}
                                     key={navItem}
                                 >
@@ -69,12 +73,20 @@ export const MobileNav = ({ showNav, closeMobileMenu, navList }: Props) => {
                             ))}
                         </ul>
 
-                        <button
-                            type="button"
+                        <motion.a
+                            href={whatsappUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            whileTap={{ scale: 0.97 }}
+                            whileHover={{
+                                scale: 1.03,
+                                background: 'hsla(45, 85%, 53%, 1)',
+                                boxShadow: '0 4px 20px hsla(45, 85%, 53%, 1)',
+                            }}
                             className="mt-8 rounded-xl bg-metallic-gold px-5 py-3 font-poppins text-sm font-semibold text-dark-bg"
                         >
                             Book Now
-                        </button>
+                        </motion.a>
                     </motion.aside>
                 </>
             )}

@@ -15,7 +15,7 @@ const Contact = () => {
             id="contact"
             variants={containerVariant}
             viewport={{ once: true, amount: 0.4 }}
-            className="py-8 px-6 bg-dark-fg font-montserrat flex items-center justify-center flex-col"
+            className="py-8 bg-dark-fg font-montserrat flex items-center justify-center flex-col"
         >
             <motion.div
                 initial={{
