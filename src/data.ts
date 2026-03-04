@@ -21,7 +21,7 @@ const contactInfo: Contact[] = [
         id: 0,
         icon: TbLocationFilled,
         head: 'Visit Our Studio',
-        content: '123 Fashion Avenue, Garki, Abuja',
+        content: '123 Duste Sokale Junction, Abuja',
     },
     {
         id: 1,
@@ -31,12 +31,18 @@ const contactInfo: Contact[] = [
     },
     {
         id: 2,
+        icon: ImPhone,
+        head: 'Our Second Line',
+        content: '+234 (0) 8032838165',
+    },
+    {
+        id: 3,
         icon: MdEmail,
         head: 'Email Us',
         content: 'adeshinaibrahim571@gmail.com',
     },
     {
-        id: 3,
+        id: 4,
         icon: BsClockFill,
         head: 'Business Hours',
         content: 'Mon - Sat: 9:00 AM - 6:00 PM',
